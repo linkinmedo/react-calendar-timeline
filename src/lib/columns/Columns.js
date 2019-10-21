@@ -18,7 +18,8 @@ const passThroughPropTypes = {
 class Columns extends Component {
   static propTypes = {
     ...passThroughPropTypes,
-    getLeftOffsetFromDate: PropTypes.func.isRequired
+    getLeftOffsetFromDate: PropTypes.func.isRequired,
+    rtl: PropTypes.bool
   }
 
   shouldComponentUpdate(nextProps) {
@@ -44,9 +45,11 @@ class Columns extends Component {
       timeSteps,
       height,
       verticalLineClassNamesForTime,
-      getLeftOffsetFromDate
+      getLeftOffsetFromDate,
+      rtl
     } = this.props
     const ratio = canvasWidth / (canvasTimeEnd - canvasTimeStart)
+    const dir = rtl ? 'right' : 'left'
 
     let lines = []
 
@@ -85,7 +88,7 @@ class Columns extends Component {
             style={{
               pointerEvents: 'none',
               top: '0px',
-              left: `${left}px`,
+              [dir]: `${left}px`,
               width: `${right - left}px`,
               height: `${height}px`
             }}
@@ -101,8 +104,12 @@ class Columns extends Component {
 const ColumnsWrapper = ({ ...props }) => {
   return (
     <TimelineStateConsumer>
-      {({ getLeftOffsetFromDate }) => (
-        <Columns getLeftOffsetFromDate={getLeftOffsetFromDate} {...props} />
+      {({ getLeftOffsetFromDate, rtl }) => (
+        <Columns
+          getLeftOffsetFromDate={getLeftOffsetFromDate}
+          rtl={rtl}
+          {...props}
+        />
       )}
     </TimelineStateConsumer>
   )

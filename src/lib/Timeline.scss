@@ -38,8 +38,6 @@ $weekend: rgba(250, 246, 225, 0.5);
   }
 
   .rct-item {
-
-
     &:hover {
       z-index: 88;
     }
@@ -132,7 +130,6 @@ $weekend: rgba(250, 246, 225, 0.5);
     z-index: 51;
   }
 
-
   .rct-dateHeader {
     display: flex;
     align-items: center;
@@ -142,14 +139,14 @@ $weekend: rgba(250, 246, 225, 0.5);
     cursor: pointer;
     font-size: 14px;
     background-color: rgb(240, 240, 240);
-    border-left:  2px solid #bbb;
+    border-left: 2px solid #bbb;
   }
 
   .rct-dateHeader-primary {
     background-color: initial;
-    border-left:  1px solid #bbb;
+    border-left: 1px solid #bbb;
     border-right: 1px solid #bbb;
-    color: #fff
+    color: #fff;
   }
 
   .rct-header-root {
@@ -158,8 +155,38 @@ $weekend: rgba(250, 246, 225, 0.5);
   }
 
   .rct-calendar-header {
-    border: 1px solid #bbb,
-
+    border: 1px solid #bbb;
   }
 
+  &.rtl {
+    .rct-item {
+      .rct-item-content {
+        left: unset;
+        rigth: 0px;
+      }
+    }
+    .rct-sidebar {
+      border-left: $border-width solid $border-color;
+      border-right: 0;
+
+      &.rct-sidebar-right {
+        border-left: 0;
+        border-right: $border-width solid $border-color;
+      }
+    }
+    .rct-vertical-lines {
+      .rct-vl {
+        border-right: 1px solid $border-color;
+        border-left: 0;
+        &.rct-vl-first {
+          border-left-width: 0;
+          border-right-width: 2px;
+        }
+      }
+    }
+    .rct-dateHeader {
+      border-right: 2px solid #bbb;
+      border-left: 0;
+    }
+  }
 }

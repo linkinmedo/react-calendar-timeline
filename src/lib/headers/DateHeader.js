@@ -19,7 +19,7 @@ class DateHeader extends React.Component {
     ]).isRequired,
     intervalRenderer: PropTypes.func,
     headerData: PropTypes.object,
-    height: PropTypes.number,
+    height: PropTypes.number
   }
 
   getHeaderUnit = () => {
@@ -105,7 +105,7 @@ const DateHeaderWrapper = ({
   className,
   intervalRenderer,
   headerData,
-  height,
+  height
 }) => (
   <TimelineStateConsumer>
     {({ getTimelineState }) => {
@@ -137,7 +137,7 @@ DateHeaderWrapper.propTypes = {
   ]),
   intervalRenderer: PropTypes.func,
   headerData: PropTypes.object,
-  height: PropTypes.number,
+  height: PropTypes.number
 }
 
 DateHeaderWrapper.defaultProps = {

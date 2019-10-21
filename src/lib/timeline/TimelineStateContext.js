@@ -46,6 +46,7 @@ export class TimelineStateProvider extends React.Component {
     showPeriod: PropTypes.func.isRequired,
     timelineUnit: PropTypes.string.isRequired,
     timelineWidth: PropTypes.number.isRequired,
+    rtl: PropTypes.bool
   }
 
   constructor(props) {
@@ -57,6 +58,7 @@ export class TimelineStateProvider extends React.Component {
         getLeftOffsetFromDate: this.getLeftOffsetFromDate,
         getDateFromLeftOffsetPosition: this.getDateFromLeftOffsetPosition,
         showPeriod: this.props.showPeriod,
+        rtl: this.props.rtl
       }
     }
   }
@@ -70,6 +72,7 @@ export class TimelineStateProvider extends React.Component {
       canvasWidth,
       timelineUnit,
       timelineWidth,
+      rtl
     } = this.props
     return {
       visibleTimeStart,
@@ -79,6 +82,7 @@ export class TimelineStateProvider extends React.Component {
       canvasWidth,
       timelineUnit,
       timelineWidth,
+      rtl
     } // REVIEW,
   }
 
