@@ -29,12 +29,17 @@ export function calculateXPositionForTime(
   canvasTimeStart,
   canvasTimeEnd,
   canvasWidth,
-  time
+  time,
+  rtl
 ) {
   const widthToZoomRatio = canvasWidth / (canvasTimeEnd - canvasTimeStart)
   const timeOffset = time - canvasTimeStart
+  let position = timeOffset * widthToZoomRatio
+  if (position > canvasWidth) {
+    position = canvasWidth
+  }
 
-  return timeOffset * widthToZoomRatio
+  return position
 }
 
 /**
