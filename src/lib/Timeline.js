@@ -447,8 +447,8 @@ export default class ReactCalendarTimeline extends Component {
     if (this.props.rtl && scrollLeft !== this.state.width) {
       scrollLeft =
         scrollLeft > this.state.width
-          ? this.state.width - (scrollLeft - this.state.width)
-          : this.state.width + (this.state.width - scrollLeft)
+          ? Math.round(this.state.width - (scrollLeft - this.state.width))
+          : Math.round(this.state.width + (this.state.width - scrollLeft))
     }
     if (componentScrollLeft !== scrollLeft) {
       this.scrollComponent.scrollLeft = scrollLeft
